@@ -1,0 +1,12 @@
+id: default
+groups: {}
+routes:
+  - id: default
+    name: default
+    final: true
+    disabled: false
+    pipeline: cribl_aws_cloudtrail_filtered
+    description: Send Filtered CloudTrail Logs
+    clones: []
+    filter: "true"
+    output: default

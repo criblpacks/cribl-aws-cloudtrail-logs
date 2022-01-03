@@ -1,0 +1,110 @@
+output: default
+groups:
+  oAjItP:
+    name: Masking Account ID and Keys
+    description: Masking Sensitive AWS Data
+    index: 5
+    disabled: false
+asyncFuncTimeout: 1000
+functions:
+  - id: comment
+    filter: "true"
+    disabled: null
+    conf:
+      comment: >-
+        Parse JSON events and remove initial fields:
+
+        - cribl_breaker - Custom cribl breaker event that is used for debugging purposes.
+
+        - sessionToken and resultToken : Large events that are generally not needed for troubleshooting use cases. https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html
+  - id: eval
+    filter: "true"
+    disabled: null
+    conf:
+      add:
+        - name: _raw
+          value: JSON.parse(_raw)
+      remove:
+        - cribl_breaker
+        - "*.responseElements.credentials.sessionToken"
+        - "*.requestParameters.resultToken"
+    description: Parse JSON and remove fields
+  - id: comment
+    filter: "true"
+    disabled: null
+    conf:
+      comment: Unroll multiple events from a single JSON event
+  - id: unroll
+    filter: "true"
+    disabled: false
+    conf:
+      srcExpr: _raw.Records
+      dstField: _raw
+    description: Unroll Events into individual events
+  - id: comment
+    filter: "true"
+    disabled: null
+    conf:
+      comment: Mask Account ID's and Access Keys from events
+  - id: mask
+    filter: "true"
+    disabled: false
+    conf:
+      rules:
+        - matchRegex: /(^|[^A-Z0-9])[A-Z0-9]{20}(?![A-Z0-9])/
+          replaceExpr: C.Mask.repeat(16)
+        - matchRegex: /(^|[^A-Z0-9])[A-Z0-9]{21}(?![A-Z0-9])/
+          replaceExpr: C.Mask.repeat(21)
+      fields:
+        - _raw.responseElements.assumedRoleUser.assumedRoleId
+        - _raw.responseElements.credentials.accessKeyId
+        - _raw.userIdentity.accessKeyId
+    description: Mask Access Key
+    groupId: oAjItP
+  - id: mask
+    filter: "true"
+    disabled: false
+    conf:
+      rules:
+        - matchRegex: /(^|[^A-Z0-9])[A-Z0-9]{12}(?![A-Z0-9])/
+          replaceExpr: C.Mask.repeat(16)
+        - replaceExpr: C.Mask.repeat(21)
+          matchRegex: /(^|[^A-Z0-9])[A-Z0-9]{21}(?![A-Z0-9])/
+      fields:
+        - source
+        - _raw.*
+    description: Mask AWS Account ID's
+    groupId: oAjItP
+  - id: comment
+    filter: "true"
+    disabled: null
+    conf:
+      comment: Simple Lookup of IP's against a known list of AWS CIDR list
+  - id: lookup
+    filter: "true"
+    disabled: false
+    conf:
+      matchMode: cidr
+      matchType: first
+      reloadPeriodSec: 60
+      addToEvent: false
+      inFields:
+        - eventField: _raw.sourceIPAddress
+          lookupField: ip_prefix
+      ignoreCase: false
+      file: aws_ip_range.csv
+      outFields:
+        - lookupField: service
+    description: Lookup IP's against known AWS IP Range
+  - id: comment
+    filter: "true"
+    disabled: null
+    conf:
+      comment: Drop low value events (Describe, List and Get)
+  - id: drop
+    filter: /(^Describe|^List|^Get)/.test(_raw.eventName)
+    disabled: false
+    conf: {}
+    description: Drop CloudTrail events Describe, List and Get
+    final: false
+description: Cribl AWS CloudTrail - filtering, masking and enriching events

@@ -1,0 +1,6 @@
+AWS Account ID:
+  lib: custom
+  description: Amazon Web Services Account ID
+  regex: /\d{12}$/gm
+  sampleData: "123456789012"
+  tags: aws,account_id
