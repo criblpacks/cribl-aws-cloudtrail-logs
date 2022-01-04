@@ -36,7 +36,7 @@ To contribute to the Pack, please do the following:
 Feel free to update the github for this pack : https://github.com/criblpacks/cribl-aws-cloudtrail-logs 
 
 ## Contact
-Kam Amir : [`kam@cribl.io`](mailto:kam@cribl.io?Subject="Cribl%20CloudTrail%20Content%20Pack")
+Kam Amir - Cribl : [`kam@cribl.io`](mailto:kam@cribl.io?Subject="Cribl%20CloudTrail%20Content%20Pack")
 
 ## License
 This Pack uses the following license: [`Apache 2.0 `](https://www.apache.org/licenses/LICENSE-2.0)
