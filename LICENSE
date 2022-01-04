@@ -1,386 +1,202 @@
-Jump to
-Confluence navigation
-Side navigation
-Page
-This page was in the background for too long and may not have fully loaded. Try to refresh the page
+ Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright 2021 Cribl, Inc
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
 
-Home
-
-Recent
-
-Spaces
-
-People
-
-Apps
-Templates
-
-Create
-Search
-
-
-
-
-Sales Engineering
-
-APPS
-SPACE SHORTCUTS
-
-
-Sales Engineering
-Packs
-1 Jira link
-
-
-
-
-
-
-Share
-
-Packs - Release Guidance
-+2
-Created by Michael Donnelly
-Last updated: Nov 18, 2021 by Nick Tankersley10 min read46 people viewed46 people viewed
-This Confluence page is now a a reflection of the Google Doc for Packs content standards:
-
-Packs Publication Standards and Processes 
-
- 
-
-Summary:
-
-This document describes the creation standards and publication process for Packs created by Cribl GOATs.  These apply to all Packs that are to be made available to the Cribl community as re-usable content. It also details how Packs will be distributed to the community and expectations around maintenance and support. 
-
-The guidance on this page may also be used as a rubric to determine whether a submitted pack corresponds to best practices.
-
-This is a working document and is open for comments.
-
-Pack Publication Standards - For Packs
-
-
-Packs Must:
-
-Be useful: 
-
-provide value for the user 
-
-Provide pipelines, sample files, lookups, knowledge objects needed to prove that value
-
-Be reusable: 
-
-not tied to any one specific customer’s use case - a pack should bring value to multiple LogStream users
-
-Provide instructions for how to use the pack including details on configuring any sources and destinations
-
-Provide details about the impact on downstream systems so customers can prepare for changes the Pack will make to the data
-
-Prep
-
-Prior to starting on the process of creating a Pack, check the Pack Dispensary List to see if something similar is already in progress, or a completed pack.  If your pack is new, register your work there.  If it’s not new, contact the current Pack owner about possible collaboration.
-
-When creating the pack,
-
-Pack ID: Name should start with Cribl (this denotes that the pack was made by someone at Cribl, community packs should not start Cribl), and should not include the word “Pack”.   All lowercase, use  - to separate words
-Example: cribl-palo-alto-firewall 
-
-Version: start with 0.1 and refer to Pack Publication Process below for subsequent versions.
-
-Description: Use this as a brief “hook”.  1-2 sentences.  
-Example:  This pack for Syslog inputs will reduce volume, and address timestamp normalization for Syslog senders that omit timezones.
-
-Author: list your full name plus “ - Cribl”.  
-Example: Michael Donnelly - Cribl
-
-License - added to Pack Readme at bottom
-This Pack uses the following license: [`Apache 2.0`](https://github.com/criblio/appscope/blob/master/LICENSE).
-
-
-Scope within any given pack:
-
-Consider a device sending data to Cribl, such as a Palo Alto firewall or F5 load balancer, router, or type of server.  Each of these devices includes multiple data sets.  As an example, consider Palo Alto Firewall data.  One co-mingled set of data tied to a single sending device, but with multiple specific data sets within such as PAN-Traffic, PAN-System, PAN-Accept, etc.
-
-The optimal user experience is to have a single pack that includes support for each of these data sets.
-
-Each Pack should include documentation listing all of the currently-supported data sets for that device or sender.  If there are known data sets that are not yet supported, these should be cited as well.
-
-Packs Must Contain:
-
-Pipelines:
-
-Packs without pipelines are not useful. 
-
-Within a pack, we want to model good behavior for any given deployment.   Just as we would normally recommend the use of one pipeline (and one route) per dataset, within a pack we should be doing the same.
-
-Each data set should have a single corresponding pipeline.
-
-Each pipeline should have an internal comment describing the overall function and benefits provided by that pipeline.
-
-Within each pipeline, use grouping and comment functions to clearly describe what’s happening.
-
-Use descriptions on each function to describe what’s happening at each step.
-
-Use grouping within the pipeline to bundle any functions that should be enabled or disabled together.
-
-Design for supportability, as well as efficiency.
-
-Samples:
-
-At least one data sample for each pipeline - data samples may be reused across pipelines, but it is preferable to include multiple data samples, each specific to a pipeline’s route/filter.  
-
-No pipeline may be shipped without a sample that shows what that pipeline does.
-
-Routes:
-
-A pack that models proper deployment techniques includes routes with appropriate filters.   
-
-Each pipeline should have a corresponding route on the pack’s routes page. The only exception to this would be packs used as a delivery mechanism for pre- and post-conditioning pipelines.
-
-The filter in that route should be as generic as possible.   For example, if the data is coming from PAN, don’t assume you’ll have sourcetype.  Instead, you can filter by _raw.match(). 
-
-Each route must have a meaningful description.
-
-The final route (filter == true) should route to the devnull pipeline
-
-Customer Functions:
-
-For any customer functions referenced in the pipeline - users should not have to install another pack to get the required functionality - when pack dependency models are finalized this may change
-
-Lookups:
-
-Any lookups required by the pack should be included with the pack.  
-
-Alternately, include instructions for building the lookup if a generic lookup is not practical
-
-Knowledge objects:
-
-Include all knowledge objects required by the pack
-
-Clear descriptions for each pre-shipped configuration where applicable
-
-A README.md file (under Settings) with details on:
-
-What the pack does and why it was created - state the value
-
-What technologies, data sources, and data destinations the pack interacts with
-
-What other dependencies the pack may have: 
-
-uses an external tool like Redis
-
-LogStream versions
-
-Deployment restrictions - single instance, distributed, cloud
-
-What is required to configure a data source or destination
-
-Specific examples of configurations when possible
-
-Links to specific sources and destinations to configure, e.g link to AWS Firehose Source for a pack that requires Firehose to collect data (this will get easier as we’re able to ship sources and destinations)
-
-Links to external documents required for more context regarding sources and destinations
-
-Instructions on how to use the pack otherwise
-
-Where to go to get support. This will be provided by Product management and will be standard across packs depending on their version.
-
-Release notes if the package is an update from a previous release
-
-Packs Should Contain:
-
- These are optional but recommended.
-
-A README including
-
-Links to videos showing how the pack works
-
-A logo associated with the technology addressed by the pack.  For example, Windows logo for Windows events, AWS Cloudwatch logo for AWS Cloudwatch data, and so forth
-
-Pack Publication Process
-
-Version 0.1 - ideation/Alpha
-
-During this period of time feel free to share with other SEs, PMs, eng, and friendly customers to refine the pack.
-
-Mark pack as version 0.1
-
-These will not be formally listed anywhere
-
-Version as necessary but not go to a version 0.5 until you’re ready to submit for review
-
-Version 0.5 - testing/beta
-
-Must cover most of the Must-haves for a pack
-
-TGZ Submitted to this folder
-
-6l. Cribl Packs 
-
-Entry added to this spreadsheet
-
-Pack Dispensary List 
-
-Tag Nick Tankersleyin the “reviewed” column and he’ll make sure some folks look at it - this is really just a formality, we’ll work together to review but this helps keep things in order so we can plan for the next part of this phase
-
-To stage or not to stage - 0.5 packs can either move on to being staged on Github and the .crbl listed on the yet to be created section in the packs docs page. It’s up to the pack contributor and the goals of the pack
-
-Version 1.0 - release
-
-Pack meets all must-have criteria
-
-Support and release policy are in place - PM is working on this, until this is ready all packs will be 0.5 version.
-
-Reviewed by other contributors and seen as product-ready
-
-Staging and Release
-
-The plan is to place all packs in github and build updated packages when the version of the pack is updated. There won’t be any automation in place to start so for each release of the pack the contributor will have to update the github code as well as publish a new .crbl package. We do not change the name of the pack based on version so uploading a new .crbl should replace the old package anywhere it is linked.
-
-We will use the Cribl github project and stage all packs there - standard naming and licensing to be determined before we begin publishing on Github.
-
-Packs are release and maintained in The Cribl Packs Dispensary. To get your pack listed and added as an admin to the pack repo, follow these steps.
-
-Create a Jira ticket (task) in the CRIBL project, using the “Pack Publication” component
-
-this will get assigned to Nick Tankersley 
-
-Provide the following information
-
-Pack name: pack display name, Cribl Pack for …
-
-Pack ID (see guidance above)
-
-Pack description - 25 to 50 words. This will be used in the repo listing
-
-Pack contributors to be added as admins of the repo - need your github usernames
-
-Attach the .crbl file that you wish to make available as part of the release
-
-example ticket: CRIBL-5652: Publish Pack: Cribl Pack for Middleware Messaging QueuesDONE 
-
-After the first publication you will have the ability to version and publish new releases without any additional requests or JIRAs.
-
-How to publish a pack to github (for github org owners only):
-
-Export the pack from your developer instance
-
-untar the pack on your local machine
-
-Create a new repo in github.com/criblpacks
-
-use the pack id as the repo name
-
-Give the repo a description 25-50 words
-
-Add tags to the repo. Common tags: observability, stream-processing, logs, events
-
-Upload files to the repo
-
-you can manually upload the contents of the .crbl to the repo via the UI
-
-you can push updates to the repo from you CLI but that’s on you to work out, use the UI, it’s easier unless you are comfortable with git CLI
-
-Add LICENSE file to the repo (see file at the end of this list)
-
-Create a new release in github
-
- give the release a version unique tag
-
-versions must follow these patterns
-
-Official release v0.0.0 for the official release - these notify the packs channel in slack
-
-use v0.0.0-RC# for release candidates to test the release - these do not notify the packs channel in slack
-
-this is useful for using the same version number over and over to test the release before cutting the next release. you cannot reuse tags in github, so the RC suffix keeps things orderly for testing a release
-
-give the release a name and description
-
-Upload the .crbl file via the UI
-
-There are some actions to automatically create a .crbl file via the repo, but it isn’t ready at the moment
-
-
-LICENSE
-12 Jul 2021, 03:07 PM
-Versioning an existing pack
-
-The easiest way to do this at the moment is to make the pack changes in logStream and export the new pack and upload those changes to Github.
-
-Update your pack
-
-Increment the version number in the pack, consider using semantic versioning or go with our LogStream versioning guidelines. 
-
-Update the README section “Release Notes” to include information about the new version, release date and what has changed. See the README in the windows pack for a good example of this
-
-Export your pack and download locally
-
-Untar your pack (packs are basically tgzs)
-
-Go to your github repo for the pack that is being updated
-
-Choose Add Files > Upload New Files
-
-Drag and drop the contents of the pack (not the top level pack folder) on your local machine into the upload dialog.  Ensure you are uploading only the contents of the pack otherwise you will create a subfolder of your pack inside the pack.
-
-Choose to commit changes directly to the main branch or create another branch that will need to be merged later 
-
-This is up to you, but for ease of use, if you are the pack creator and admin just merge to main. If you are unsure if the pack contents are ready to be merged then choose Create New Branch For This in the upload form. If you go with a new branch you will have to merge the branch once all conflicts are cleared. Most of the time there will not be any conflicts, conflicts typically arise when there are multiple contributors submitted Pull Requests regularly
-
-Once your changes are merged to main, create a new release
-
-Click on the “Releases” in the right hand column of the repo
-
-Select “Draft a New Release”
-
-Create a new “tag” - this is basically the version number - we use the format v<the version number>, e.g. v0.5.2
-
-if you want to test the release process you can create a release candidate tag v0.5.2-RC1. This will let you experiment with the new pack release before create a final release tag, one without the -RC# suffix
-
-Leave the target set to the main branch
-
-Give the release a name - something easy to understand - v0.5.2 Release of The Cribl Pack for Windows
-
-Put your release notes in the description section
-
-Do not worry about uploading the .crbl file. All pack repos have automation to create a .crbl when the release is set
-
-If your pack is pre-1.0 mark or a release candidate select “this is a pre-release”
-
-When ready click “publish release”
-
-Handling Pull Requests
-
-Pull Requests (PRs) allow community contributors to make recommended updates to the actual contents in your pack. PRs are common practice in software development and will come to be a more important part of our product as we add more tools for uncoupling development from production deployments of LogStream. Packs give us a chance to learn PR flows and establish some controls around how they will work.
-
-For more info, here’s a quick review of PRs from github:
-
-https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
-
-Steps for managing a PR in your pack
-
-Most of the time, if you are making the change/uploading new content you can just choose to merge directly to the main branch. For outside contributors a PR will be created
-
- 
-
-Maintenance
-
-Any pack that reaches 1.0 and beyond will be considered supported and actively maintained. Customer asks and support requests should be driven to the relevant pack github repo. The community is encouraged to do PRs as a way of asking for features or fixing a bug.
-
-Original builders of the pack as well as product management and engineering will have the ability to manage PRs and versioning. Builder of the pack has ultimate authority over the pack.
-
- 
-
-Like3 people like this
-No labels
-
-Write a comment…
-
-LICENSE
-document · 11 KB
-
- Apache License                           Version 2.0, January 2004                        http://www.apache.org/licenses/   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION   1. Definitions.      "License" shall mean the terms and conditions for use, reproduction,      and distribution as defined by Sections 1 through 9 of this document.      "Licensor" shall mean the copyright owner or entity authorized by      the copyright owner that is granting the License.      "Legal Entity" shall mean the union of the acting entity and all      other entities that control, are controlled by, or are under common      control with that entity. For the purposes of this definition,      "control" means (i) the power, direct or indirect, to cause the      direction or management of such entity, whether by contract or      otherwise, or (ii) ownership of fifty percent (50%) or more of the      outstanding shares, or (iii) beneficial ownership of such entity.      "You" (or "Your") shall mean an individual or Legal Entity      exercising permissions granted by this License.      "Source" form shall mean the preferred form for making modifications,      including but not limited to software source code, documentation      source, and configuration files.      "Object" form shall mean any form resulting from mechanical      transformation or translation of a Source form, including but      not limited to compiled object code, generated documentation,      and conversions to other media types.      "Work" shall mean the work of authorship, whether in Source or      Object form, made available under the License, as indicated by a      copyright notice that is included in or attached to the work      (an example is provided in the Appendix below).      "Derivative Works" shall mean any work, whether in Source or Object      form, that is based on (or derived from) the Work and for which the      editorial revisions, annotations, elaborations, or other modifications      represent, as a whole, an original work of authorship. For the purposes      of this License, Derivative Works shall not include works that remain      separable from, or merely link (or bind by name) to the interfaces of,      the Work and Derivative Works thereof.      "Contribution" shall mean any work of authorship, including      the original version of the Work and any modifications or additions      to that Work or Derivative Works thereof, that is intentionally      submitted to Licensor for inclusion in the Work by the copyright owner      or by an individual or Legal Entity authorized to submit on behalf of      the copyright owner. For the purposes of this definition, "submitted"      means any form of electronic, verbal, or written communication sent      to the Licensor or its representatives, including but not limited to      communication on electronic mailing lists, source code control systems,      and issue tracking systems that are managed by, or on behalf of, the      Licensor for the purpose of discussing and improving the Work, but      excluding communication that is conspicuously marked or otherwise
-      designated in writing by the copyright owner as "Not a Contribution."      "Contributor" shall mean Licensor and any individual or Legal Entity      on behalf of whom a Contribution has been received by Licensor and      subsequently incorporated within the Work.   2. Grant of Copyright License. Subject to the terms and conditions of      this License, each Contributor hereby grants to You a perpetual,      worldwide, non-exclusive, no-charge, royalty-free, irrevocable      copyright license to reproduce, prepare Derivative Works of,      publicly display, publicly perform, sublicense, and distribute the      Work and such Derivative Works in Source or Object form.   3. Grant of Patent License. Subject to the terms and conditions of      this License, each Contributor hereby grants to You a perpetual,      worldwide, non-exclusive, no-charge, royalty-free, irrevocable      (except as stated in this section) patent license to make, have made,      use, offer to sell, sell, import, and otherwise transfer the Work,      where such license applies only to those patent claims licensable      by such Contributor that are necessarily infringed by their      Contribution(s) alone or by combination of their Contribution(s)      with the Work to which such Contribution(s) was submitted. If You      institute patent litigation against any entity (including a      cross-claim or counterclaim in a lawsuit) alleging that the Work      or a Contribution incorporated within the Work constitutes direct      or contributory patent infringement, then any patent licenses      granted to You under this License for that Work shall terminate      as of the date such litigation is filed.   4. Redistribution. You may reproduce and distribute copies of the      Work or Derivative Works thereof in any medium, with or without      modifications, and in Source or Object form, provided that You      meet the following conditions:      (a) You must give any other recipients of the Work or          Derivative Works a copy of this License; and      (b) You must cause any modified files to carry prominent notices          stating that You changed the files; and      (c) You must retain, in the Source form of any Derivative Works          that You distribute, all copyright, patent, trademark, and          attribution notices from the Source form of the Work,          excluding those notices that do not pertain to any part of          the Derivative Works; and      (d) If the Work includes a "NOTICE" text file as part of its          distribution, then any Derivative Works that You distribute must          include a readable copy of the attribution notices contained          within such NOTICE file, excluding those notices that do not          pertain to any part of the Derivative Works, in at least one          of the following places: within a NOTICE text file distributed          as part of the Derivative Works; within the Source form or          documentation, if provided along with the Derivative Works; or,          within a display generated by the Derivative Works, if and          wherever such third-party notices normally appear. The contents          of the NOTICE file are for informational purposes only and          do not modify the License. You may add Your own attribution          notices within Derivative Works that You distribute, alongside
-
-
-204 %
