@@ -26,83 +26,148 @@ functions:
     disabled: null
     conf:
       add:
-        - name: '"@timestamp"'
-          value: parsed.eventTime
+        - name: "'@timestamp'"
+          value: ct.eventTime
         - name: event
           value: "{}"
         - name: event.id
-          value: parsed.eventID
-        - name: event.type
-          value: parsed.eventType
-        - name: event.category
-          value: "[parsed.eventCategory]"
-        - name: event.provider
-          value: '"aws.cloudtrail"'
+          value: ct.eventID
         - name: event.action
-          value: parsed.eventName
+          value: ct.eventName
+        - name: event.type
+          value: ct.eventType
+        - name: event.category
+          value: "[ct.eventCategory]"
+        - name: event.provider
+          value: "'aws.cloudtrail'"
         - name: event.outcome
-          value: "parsed.responseElements !== null ? 'success' : (parsed.errorCode ?
-            'failure' : 'unknown')"
+          value: "ct.errorCode ? 'failure' : 'success'"
         - name: event.created
           value: C.Time.strftime(Date.now()/1000,'%Y-%m-%dT%H:%M:%S.%LZ')
         - name: aws
           value: "{}"
         - name: aws.cloudtrail
           value: "{}"
-        - name: aws.cloudtrail.eventVersion
-          value: parsed.eventVersion
-        - name: aws.cloudtrail.userIdentity
-          value: parsed.userIdentity
-        - name: aws.cloudtrail.eventSource
-          value: parsed.eventSource
-        - name: aws.cloudtrail.eventName
-          value: parsed.eventName
-        - name: aws.cloudtrail.awsRegion
-          value: parsed.awsRegion
-        - name: aws.cloudtrail.sourceIPAddress
-          value: parsed.sourceIPAddress
-        - name: aws.cloudtrail.requestParameters
-          value: parsed.requestParameters
-        - name: aws.cloudtrail.responseElements
-          value: parsed.responseElements
-        - name: aws.cloudtrail.errorCode
-          value: parsed.errorCode
-        - name: aws.cloudtrail.errorMessage
-          value: parsed.errorMessage
-        - name: aws.cloudtrail.recipientAccountId
-          value: parsed.recipientAccountId
-        - name: source
+        - name: aws.cloudtrail.event_version
+          value: ct.eventVersion
+        - name: aws.cloudtrail.event_type
+          value: ct.eventType
+        - name: aws.cloudtrail.event_category
+          value: ct.eventCategory
+        - name: aws.cloudtrail.api_version
+          value: ct.apiVersion
+        - name: aws.cloudtrail.management_event
+          value: ct.managementEvent
+        - name: aws.cloudtrail.read_only
+          value: ct.readOnly
+        - name: aws.cloudtrail.recipient_account_id
+          value: ct.recipientAccountId
+        - name: aws.cloudtrail.request_id
+          value: ct.requestID
+        - name: aws.cloudtrail.shared_event_id
+          value: ct.sharedEventID
+        - name: aws.cloudtrail.error_code
+          value: ct.errorCode
+        - name: aws.cloudtrail.error_message
+          value: ct.errorMessage
+        - name: aws.cloudtrail.request_parameters.text
+          value: JSON.stringify(ct.requestParameters)
+        - name: aws.cloudtrail.response_elements.text
+          value: JSON.stringify(ct.responseElements)
+        - name: aws.cloudtrail.user_identity
           value: "{}"
-        - name: source.ip
-          value: parsed.sourceIPAddress
+        - name: aws.cloudtrail.user_identity.type
+          value: ct.userIdentity.type
+        - name: aws.cloudtrail.user_identity.arn
+          value: ct.userIdentity.arn
+        - name: aws.cloudtrail.user_identity.access_key_id
+          value: ct.userIdentity.accessKeyId
+        - name: aws.cloudtrail.user_identity.invoked_by
+          value: ct.userIdentity.invokedBy
+        - name: aws.cloudtrail.user_identity.session_context
+          value: "{}"
+        - name: aws.cloudtrail.user_identity.session_context.creation_date
+          value: "ct.userIdentity.sessionContext ?
+            ct.userIdentity.sessionContext.attributes.creationDate : null"
+        - name: aws.cloudtrail.user_identity.session_context.mfa_authenticated
+          value: "ct.userIdentity.sessionContext ?
+            ct.userIdentity.sessionContext.attributes.mfaAuthenticated : null"
+        - name: aws.cloudtrail.user_identity.session_context.session_issuer
+          value: "{}"
+        - name: aws.cloudtrail.user_identity.session_context.session_issuer.account_id
+          value: "ct.userIdentity.sessionContext ?
+            ct.userIdentity.sessionContext.sessionIssuer.accountId : null"
+        - name: aws.cloudtrail.user_identity.session_context.session_issuer.arn
+          value: "ct.userIdentity.sessionContext ?
+            ct.userIdentity.sessionContext.sessionIssuer.arn : null"
+        - name: aws.cloudtrail.user_identity.session_context.session_issuer.principal_id
+          value: "ct.userIdentity.sessionContext ?
+            ct.userIdentity.sessionContext.sessionIssuer.principalId : null"
+        - name: aws.cloudtrail.user_identity.session_context.session_issuer.type
+          value: "ct.userIdentity.sessionContext ?
+            ct.userIdentity.sessionContext.sessionIssuer.type : null"
+        - name: actor
+          value: "{}"
+        - name: actor.entity
+          value: "{}"
+        - name: actor.entity.id
+          value: ct.userIdentity.principalId
         - name: user
           value: "{}"
         - name: user.name
-          value: "parsed.userIdentity ? parsed.userIdentity.principalId : null"
+          value: "ct.userIdentity.userName ? ct.userIdentity.userName :
+            ct.userIdentity.principalId"
+        - name: source
+          value: "{}"
+        - name: source.ip
+          value: ct.sourceIPAddress
+        - name: data_stream
+          value: "{}"
+        - name: data_stream.dataset
+          value: "'aws.cloudtrail'"
+        - name: data_stream.namespace
+          value: "'aws'"
+        - name: data_stream.type
+          value: "'logs'"
+        - name: input
+          value: "{}"
+        - name: input.type
+          value: "'s3'"
+        - name: log
+          value: "{}"
+        - name: log.offset
+          value: "0"
+        - name: s3
+          value: "{}"
       keep:
-        - '"@timestamp"'
-        - event
-        - event.*
-        - aws
+        - "'@timestamp'"
+        - actor.*
         - aws.*
-        - source
+        - cloud.*
+        - data_stream.*
+        - event.*
+        - host.*
+        - input.*
+        - log.*
+        - related.*
         - source.*
-        - user
+        - target.*
         - user.*
       remove:
         - _raw
-        - __raw
+        - ct
         - __criblEventType
         - __ctrlFields
         - __final
         - __cloneCount
-        - __channel
-        - __source
         - __isBroken
-        - _time
-        - parsed
-    description: Build ECS-style objects and populate required fields; then
-      drop/keep as requested
+        - __raw
+        - __inputId
+        - __channel
+        - cribl_breaker
+        - __source
+        - source
+    description: Build enriched objects, map CloudTrail values, set timestamps, and cleanup
 description: |-
   Convert raw AWS CloudTrail data into Elastic Common Schema (ECS)
   https://www.elastic.co/docs/reference/ecs/ecs-field-reference 
