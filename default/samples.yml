@@ -6,3 +6,10 @@ zyNWSr:
   created: 1641246234261
   size: 474158
   numEvents: 90
+BeVTW2:
+  sampleName: cribl-cloudtrail-sample.json
+  description: AWS CloudTrail Sample Log
+  tags: aws,cloudtrail
+  created: 1752174928924
+  size: 58780
+  numEvents: 44
