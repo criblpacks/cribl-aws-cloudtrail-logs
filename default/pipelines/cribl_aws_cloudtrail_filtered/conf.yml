@@ -4,7 +4,7 @@ groups:
     name: Masking Account ID and Keys
     description: Masking Sensitive AWS Data
     index: 5
-    disabled: false
+    disabled: true
 asyncFuncTimeout: 1000
 functions:
   - id: comment
@@ -28,6 +28,7 @@ functions:
         - cribl_breaker
         - "*.responseElements.credentials.sessionToken"
         - "*.requestParameters.resultToken"
+        - cribl_pipe
     description: Parse JSON and remove fields
   - id: comment
     filter: "true"
@@ -48,7 +49,7 @@ functions:
       comment: Mask Account ID's and Access Keys from events
   - id: mask
     filter: "true"
-    disabled: false
+    disabled: true
     conf:
       rules:
         - matchRegex: /(^|[^A-Z0-9])[A-Z0-9]{20}(?![A-Z0-9])/
@@ -63,7 +64,7 @@ functions:
     groupId: oAjItP
   - id: mask
     filter: "true"
-    disabled: false
+    disabled: true
     conf:
       rules:
         - matchRegex: /(^|[^A-Z0-9])[A-Z0-9]{12}(?![A-Z0-9])/

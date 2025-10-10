@@ -7,6 +7,20 @@ routes:
     disabled: false
     pipeline: cribl_aws_cloudtrail_filtered
     description: Send Filtered CloudTrail Logs
-    clones: []
+    enableOutputExpression: false
+    outputExpression: null
     filter: "true"
+    clones: []
     output: default
+  - id: 5GOLij
+    name: convert to ecs
+    final: true
+    disabled: true
+    pipeline: cloudtrail_to_ecs
+    description: Convert raw AWS Events into Elastic Common Schema (ECS)
+    enableOutputExpression: false
+    outputExpression: null
+    filter: "true"
+    clones: []
+    output: default
+comments: []

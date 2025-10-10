@@ -1,0 +1,108 @@
+output: default
+streamtags: []
+groups: {}
+asyncFuncTimeout: 1000
+functions:
+  - id: comment
+    filter: "true"
+    disabled: null
+    conf:
+      comment: Parse the raw JSON events from the AWS CloudTrail S3 Bucket
+  - id: eval
+    filter: "true"
+    disabled: null
+    conf:
+      add:
+        - name: parsed
+          value: JSON.parse(_raw)
+    description: Parse the JSON found in _raw into a temporary object
+  - id: comment
+    filter: "true"
+    disabled: null
+    conf:
+      comment: Map the AWS CloudTrail events to ECS Fields
+  - id: eval
+    filter: "true"
+    disabled: null
+    conf:
+      add:
+        - name: '"@timestamp"'
+          value: parsed.eventTime
+        - name: event
+          value: "{}"
+        - name: event.id
+          value: parsed.eventID
+        - name: event.type
+          value: parsed.eventType
+        - name: event.category
+          value: "[parsed.eventCategory]"
+        - name: event.provider
+          value: '"aws.cloudtrail"'
+        - name: event.action
+          value: parsed.eventName
+        - name: event.outcome
+          value: "parsed.responseElements !== null ? 'success' : (parsed.errorCode ?
+            'failure' : 'unknown')"
+        - name: event.created
+          value: C.Time.strftime(Date.now()/1000,'%Y-%m-%dT%H:%M:%S.%LZ')
+        - name: aws
+          value: "{}"
+        - name: aws.cloudtrail
+          value: "{}"
+        - name: aws.cloudtrail.eventVersion
+          value: parsed.eventVersion
+        - name: aws.cloudtrail.userIdentity
+          value: parsed.userIdentity
+        - name: aws.cloudtrail.eventSource
+          value: parsed.eventSource
+        - name: aws.cloudtrail.eventName
+          value: parsed.eventName
+        - name: aws.cloudtrail.awsRegion
+          value: parsed.awsRegion
+        - name: aws.cloudtrail.sourceIPAddress
+          value: parsed.sourceIPAddress
+        - name: aws.cloudtrail.requestParameters
+          value: parsed.requestParameters
+        - name: aws.cloudtrail.responseElements
+          value: parsed.responseElements
+        - name: aws.cloudtrail.errorCode
+          value: parsed.errorCode
+        - name: aws.cloudtrail.errorMessage
+          value: parsed.errorMessage
+        - name: aws.cloudtrail.recipientAccountId
+          value: parsed.recipientAccountId
+        - name: source
+          value: "{}"
+        - name: source.ip
+          value: parsed.sourceIPAddress
+        - name: user
+          value: "{}"
+        - name: user.name
+          value: "parsed.userIdentity ? parsed.userIdentity.principalId : null"
+      keep:
+        - '"@timestamp"'
+        - event
+        - event.*
+        - aws
+        - aws.*
+        - source
+        - source.*
+        - user
+        - user.*
+      remove:
+        - _raw
+        - __raw
+        - __criblEventType
+        - __ctrlFields
+        - __final
+        - __cloneCount
+        - __channel
+        - __source
+        - __isBroken
+        - _time
+        - parsed
+    description: Build ECS-style objects and populate required fields; then
+      drop/keep as requested
+description: |-
+  Convert raw AWS CloudTrail data into Elastic Common Schema (ECS)
+  https://www.elastic.co/docs/reference/ecs/ecs-field-reference 
