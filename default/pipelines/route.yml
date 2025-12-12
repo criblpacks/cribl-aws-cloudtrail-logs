@@ -23,4 +23,15 @@ routes:
     filter: "true"
     clones: []
     output: default
+  - id: Abvf6o
+    name: convert to Azure
+    final: true
+    disabled: true
+    pipeline: cloudtrail_to_azure_sentinel
+    description: Convert CloudTrail logs for use with Azure Sentinel
+    enableOutputExpression: false
+    outputExpression: null
+    filter: "true"
+    clones: []
+    output: default
 comments: []

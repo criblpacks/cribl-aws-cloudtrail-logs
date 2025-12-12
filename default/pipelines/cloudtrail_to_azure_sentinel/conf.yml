@@ -1,0 +1,230 @@
+output: default
+streamtags:
+  - azure
+  - sentinel
+  - cloudtrail
+groups: {}
+asyncFuncTimeout: 1000
+functions:
+  - id: comment
+    filter: "true"
+    disabled: null
+    conf:
+      comment: Parse the incoming event
+  - id: serde
+    filter: "true"
+    disabled: null
+    conf:
+      mode: extract
+      type: json
+      srcField: _raw
+      overwrite: true
+    description: Parse CloudTrail JSON from _raw into top-level fields
+  - id: comment
+    filter: "true"
+    disabled: null
+    conf:
+      comment: "Map events to Azure Table for CloudTrail Events per the docs :
+        https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/\
+        awscloudtrail"
+  - id: eval
+    filter: "true"
+    disabled: null
+    conf:
+      add:
+        - name: AdditionalEventData
+          value: "additionalEventData ? additionalEventData : null"
+        - name: APIVersion
+          value: "apiVersion ? apiVersion : null"
+        - name: AwsEventId
+          value: "eventID ? eventID : null"
+        - name: AWSRegion
+          value: "awsRegion ? awsRegion : null"
+        - name: AwsRequestId
+          value: "requestID ? requestID : null"
+        - name: AwsRequestId_
+          value: "requestID ? requestID : null"
+        - name: _BilledSize
+          value: "null"
+        - name: Category
+          value: "eventCategory ? eventCategory : null"
+        - name: CidrIp
+          value: "requestParameters && requestParameters.cidrIp ? requestParameters.cidrIp
+            : null"
+        - name: CipherSuite
+          value: "tlsDetails && tlsDetails.cipherSuite ? tlsDetails.cipherSuite : null"
+        - name: ClientProvidedHostHeader
+          value: "tlsDetails && tlsDetails.clientProvidedHostHeader ?
+            tlsDetails.clientProvidedHostHeader : null"
+        - name: DestinationPort
+          value: "requestParameters && (requestParameters.destinationPort ||
+            requestParameters.toPort) ? (requestParameters.destinationPort ||
+            requestParameters.toPort) : null"
+        - name: EC2RoleDelivery
+          value: "additionalEventData && additionalEventData.EC2RoleDelivery ?
+            additionalEventData.EC2RoleDelivery : null"
+        - name: ErrorCode
+          value: "errorCode ? errorCode : null"
+        - name: ErrorMessage
+          value: "errorMessage ? errorMessage : null"
+        - name: EventName
+          value: "eventName ? eventName : null"
+        - name: EventSource
+          value: "eventSource ? eventSource : null"
+        - name: EventTypeName
+          value: "eventType ? eventType : null"
+        - name: EventVersion
+          value: "eventVersion ? eventVersion : null"
+        - name: IpProtocol
+          value: "requestParameters && requestParameters.ipProtocol ?
+            requestParameters.ipProtocol : null"
+        - name: _IsBillable
+          value: "null"
+        - name: ManagementEvent
+          value: "managementEvent != null ? managementEvent : null"
+        - name: OperationName
+          value: "eventName ? eventName : null"
+        - name: ReadOnly
+          value: "readOnly != null ? readOnly : null"
+        - name: RecipientAccountId
+          value: "recipientAccountId ? recipientAccountId : null"
+        - name: RequestParameters
+          value: "requestParameters ? requestParameters : null"
+        - name: Resources
+          value: "resources ? resources : null"
+        - name: ResponseElements
+          value: "responseElements != null ? responseElements : null"
+        - name: ServiceEventDetails
+          value: "serviceEventDetails ? serviceEventDetails : null"
+        - name: SessionCreationDate
+          value: "userIdentity && userIdentity.sessionContext &&
+            userIdentity.sessionContext.attributes &&
+            userIdentity.sessionContext.attributes.creationDate ?
+            userIdentity.sessionContext.attributes.creationDate : null"
+        - name: SessionIssuerAccountId
+          value: "userIdentity && userIdentity.sessionContext &&
+            userIdentity.sessionContext.sessionIssuer &&
+            userIdentity.sessionContext.sessionIssuer.accountId ?
+            userIdentity.sessionContext.sessionIssuer.accountId : null"
+        - name: SessionIssuerArn
+          value: "userIdentity && userIdentity.sessionContext &&
+            userIdentity.sessionContext.sessionIssuer ?
+            userIdentity.sessionContext.sessionIssuer.arn : null"
+        - name: SessionIssuerPrincipalId
+          value: "userIdentity && userIdentity.sessionContext &&
+            userIdentity.sessionContext.sessionIssuer &&
+            userIdentity.sessionContext.sessionIssuer.principalId ?
+            userIdentity.sessionContext.sessionIssuer.principalId : null"
+        - name: SessionIssuerType
+          value: "userIdentity && userIdentity.sessionContext &&
+            userIdentity.sessionContext.sessionIssuer &&
+            userIdentity.sessionContext.sessionIssuer.type ?
+            userIdentity.sessionContext.sessionIssuer.type : null"
+        - name: SessionIssuerUserName
+          value: "userIdentity && userIdentity.sessionContext &&
+            userIdentity.sessionContext.sessionIssuer &&
+            userIdentity.sessionContext.sessionIssuer.userName ?
+            userIdentity.sessionContext.sessionIssuer.userName : null"
+        - name: SessionMfaAuthenticated
+          value: "userIdentity && userIdentity.sessionContext &&
+            userIdentity.sessionContext.attributes &&
+            userIdentity.sessionContext.attributes.mfaAuthenticated ?
+            userIdentity.sessionContext.attributes.mfaAuthenticated : null"
+        - name: SharedEventId
+          value: "sharedEventID ? sharedEventID : null"
+        - name: SourceIpAddress
+          value: "sourceIPAddress ? sourceIPAddress : null"
+        - name: SourcePort
+          value: "additionalEventData && (additionalEventData.SourcePort ||
+            additionalEventData.sourcePort) ? (additionalEventData.SourcePort ||
+            additionalEventData.sourcePort) : null"
+        - name: SourceSystem
+          value: "'AWSCloudTrail'"
+        - name: TenantId
+          value: "recipientAccountId ? recipientAccountId : null"
+        - name: TimeGenerated
+          value: "eventTime ? eventTime : null"
+        - name: TlsVersion
+          value: "tlsDetails && tlsDetails.tlsVersion ? tlsDetails.tlsVersion : null"
+        - name: Type
+          value: "userIdentity && userIdentity.type ? userIdentity.type : null"
+        - name: UserAgent
+          value: "userAgent ? userAgent : null"
+        - name: UserIdentityAccessKeyId
+          value: "userIdentity && userIdentity.accessKeyId ? userIdentity.accessKeyId :
+            null"
+        - name: UserIdentityAccountId
+          value: "userIdentity && userIdentity.accountId ? userIdentity.accountId : null"
+        - name: UserIdentityArn
+          value: "userIdentity && userIdentity.arn ? userIdentity.arn : null"
+        - name: UserIdentityInvokedBy
+          value: "userIdentity && userIdentity.invokedBy ? userIdentity.invokedBy : null"
+        - name: UserIdentityPrincipalid
+          value: "userIdentity && userIdentity.principalId ? userIdentity.principalId :
+            null"
+        - name: UserIdentityType
+          value: "userIdentity && userIdentity.type ? userIdentity.type : null"
+        - name: UserIdentityUserName
+          value: "userIdentity && userIdentity.userName ? userIdentity.userName : null"
+        - name: VpcEndpointId
+          value: "requestParameters && requestParameters.vpcEndpointId ?
+            requestParameters.vpcEndpointId : null"
+      keep:
+        - AdditionalEventData
+        - APIVersion
+        - AwsEventId
+        - AWSRegion
+        - AwsRequestId
+        - AwsRequestId_
+        - _BilledSize
+        - Category
+        - CidrIp
+        - CipherSuite
+        - ClientProvidedHostHeader
+        - DestinationPort
+        - EC2RoleDelivery
+        - ErrorCode
+        - ErrorMessage
+        - EventName
+        - EventSource
+        - EventTypeName
+        - EventVersion
+        - IpProtocol
+        - _IsBillable
+        - ManagementEvent
+        - OperationName
+        - ReadOnly
+        - RecipientAccountId
+        - RequestParameters
+        - Resources
+        - ResponseElements
+        - ServiceEventDetails
+        - SessionCreationDate
+        - SessionIssuerAccountId
+        - SessionIssuerArn
+        - SessionIssuerPrincipalId
+        - SessionIssuerType
+        - SessionIssuerUserName
+        - SessionMfaAuthenticated
+        - SharedEventId
+        - SourceIpAddress
+        - SourcePort
+        - SourceSystem
+        - TenantId
+        - TimeGenerated
+        - TlsVersion
+        - Type
+        - UserAgent
+        - UserIdentityAccessKeyId
+        - UserIdentityAccountId
+        - UserIdentityArn
+        - UserIdentityInvokedBy
+        - UserIdentityPrincipalid
+        - UserIdentityType
+        - UserIdentityUserName
+        - VpcEndpointId
+      remove:
+        - _raw
+        - "*"
+    description: Map CloudTrail fields to Microsoft Sentinel expected field names
+description: Convert CloudTrail events into Azure Sentinel ready events
