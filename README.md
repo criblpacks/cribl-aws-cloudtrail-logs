@@ -1,4 +1,4 @@
-# Cribl Pack for AWS CloudTrail Data Collection  (v.1.1.2)
+# Cribl Pack for AWS CloudTrail Data Collection  (v.1.1.3)
 ----
 
 This pack will help collect your Amazon Web Services (AWS) CloudTrail logs from an existing S3 bucket and into your logging solution of choice. The pipelines will help remove unnecessary fields and events thus reducing the noise and clutter of CloudTrail events. This pack is based on the blog post https://cribl.io/blog/threat-hunting-while-staying-compliant-categorizing-and-scoring-aws-cloudtrail-events-in-real-time/ . From here we built a content pack that helps lay the groundwork for collecting CloudTrail logs.
@@ -36,6 +36,11 @@ Fixed ECS Mapping to include all the fields from the documentation https://www.e
 ### Version 1.1.2 - 2025-12-12
 Added Azure Log Analytics Table for CloudTrail events : https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/awscloudtrail
 
+### Version 1.1.3 - 2026-03-27
+Fixed Pipeline `cribl_aws_cloudtrail_filtered` removing the last EVAL function.
+Added pipeline `cribl_aws_cloudtrail_filtered_crowdstrike_ngsiem` that updates the function and expression from parse to stringify. 
+Added Route to CrowdStrike NGSIEM.
+Updated descriptions for routes.
 
 ## Contributing to the Pack
 To contribute to the Pack, please do the following:

@@ -8,7 +8,6 @@ routes:
     pipeline: cribl_aws_cloudtrail_filtered
     description: Send Filtered CloudTrail Logs
     enableOutputExpression: false
-    outputExpression: null
     filter: "true"
     clones: []
     output: default
@@ -17,20 +16,28 @@ routes:
     final: true
     disabled: true
     pipeline: cloudtrail_to_ecs
-    description: Convert raw AWS Events into Elastic Common Schema (ECS)
+    description: Convert raw AWS CloudTrail logs into Elastic Common Schema (ECS)
     enableOutputExpression: false
-    outputExpression: null
     filter: "true"
     clones: []
     output: default
   - id: Abvf6o
-    name: convert to Azure
+    name: convert to Azure Sentinel
     final: true
     disabled: true
     pipeline: cloudtrail_to_azure_sentinel
-    description: Convert CloudTrail logs for use with Azure Sentinel
+    description: Convert raw AWS CloudTrail logs for use with Azure Sentinel
     enableOutputExpression: false
-    outputExpression: null
+    filter: "true"
+    clones: []
+    output: default
+  - id: 1poQ8y
+    name: convert to CrowdStrike NGSIEM
+    final: true
+    disabled: true
+    pipeline: cribl_aws_cloudtrail_filtered_crowdstrike_ng-siem
+    description: Convert raw AWS CloudTrail logs for use with CrowdStrike NGSIEM.
+    enableOutputExpression: false
     filter: "true"
     clones: []
     output: default
