@@ -14,6 +14,7 @@ functions:
         Parse JSON events and remove initial fields:
         - cribl_breaker - Custom cribl breaker event that is used for debugging purposes.
         - sessionToken and resultToken : Large events that are generally not needed for troubleshooting use cases. https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html
+        Added JSON.stringify instead of parse to help with CrowdStrike NGSIEM events.
   - id: eval
     filter: "true"
     conf:
@@ -101,4 +102,16 @@ functions:
     conf: {}
     description: Drop CloudTrail events Describe, List and Get
     final: false
+  - id: eval
+    filter: "true"
+    disabled: false
+    conf:
+      keep:
+        - _raw
+      remove:
+        - "*"
+      add:
+        - disabled: false
+          value: JSON.stringify(_raw)
+          name: _raw
 description: Cribl AWS CloudTrail - filtering, masking and enriching events
