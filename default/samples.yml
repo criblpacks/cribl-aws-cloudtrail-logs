@@ -1,11 +1,3 @@
-zyNWSr:
-  sampleName: aws-cloudtrail-sample.log
-  description: AWS CloudTrail Sample Data
-  tags: aws,cloudtrail
-  ttl: 0
-  created: 1641246234261
-  size: 474158
-  numEvents: 90
 BeVTW2:
   sampleName: cribl-cloudtrail-sample.json
   description: AWS CloudTrail Sample Log
