@@ -1,0 +1,113 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ecs@aws.cloudtrail",
+  "description": "Elastic Common Schema (ECS) field set for AWS CloudTrail event data",
+  "type": "object",
+  "properties": {
+    "@timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date/time the event occurred, mapped from CloudTrail eventTime."
+    },
+    "event": {
+      "type": "object",
+      "description": "ECS event fields capturing CloudTrail event details",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique ID of the CloudTrail event (eventID)."
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of event, e.g. Management, Data, or Insight event."
+        },
+        "category": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "ECS event categories, e.g. [\"iam\", \"api\"]"
+        },
+        "provider": {
+          "type": "string",
+          "description": "The service that generated the event, e.g. 'aws.cloudtrail'."
+        },
+        "action": {
+          "type": "string",
+          "description": "The AWS API call name, mapped from eventName."
+        },
+        "outcome": {
+          "type": "string",
+          "enum": ["success", "failure", "unknown"],
+          "description": "Indicates success or failure of the event."
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the event was first ingested or processed."
+        }
+      },
+      "required": ["id", "action"]
+    },
+    "aws": {
+      "type": "object",
+      "description": "AWS-specific fields from CloudTrail event",
+      "properties": {
+        "cloudtrail": {
+          "type": "object",
+          "description": "CloudTrail-specific event details.",
+          "properties": {
+            "eventVersion": {
+              "type": "string"
+            },
+            "userIdentity": {
+              "type": "object",
+              "properties": {
+                "type": { "type": "string" },
+                "principalId": { "type": "string" },
+                "arn": { "type": "string" },
+                "accountId": { "type": "string" },
+                "invokedBy": { "type": "string" }
+              }
+            },
+            "eventSource": { "type": "string" },
+            "eventName": { "type": "string" },
+            "awsRegion": { "type": "string" },
+            "sourceIPAddress": { "type": "string" },
+            "requestParameters": {
+              "type": "object",
+              "description": "Parameters sent with the request."
+            },
+            "responseElements": {
+              "type": "object",
+              "description": "Response elements from AWS."
+            },
+            "errorCode": { "type": "string" },
+            "errorMessage": { "type": "string" },
+            "recipientAccountId": { "type": "string" }
+          },
+          "required": ["eventVersion", "eventSource", "eventName", "awsRegion"]
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "ip": {
+          "type": "string",
+          "description": "Source IP address from which the AWS API call was initiated."
+        }
+      }
+    },
+    "user": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "User name or identifier from AWS identity."
+        }
+      }
+    }
+  },
+  "required": ["@timestamp", "event", "aws"]
+}

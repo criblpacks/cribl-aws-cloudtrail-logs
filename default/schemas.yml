@@ -1,0 +1,6 @@
+cribl_internal:
+  description: ""
+sample_schema:
+  description: ""
+ecs-cloudtrail-schema:
+  description: ECS Schema for CloudTrail Events
