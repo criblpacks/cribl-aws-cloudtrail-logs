@@ -41,6 +41,16 @@ functions:
   - id: comment
     filter: "true"
     conf:
+      comment: Drop low value events (Describe, List and Get) early to avoid unnecessary processing
+  - id: drop
+    filter: /(^Describe|^List|^Get)/.test(_raw.eventName)
+    disabled: false
+    conf: {}
+    description: Drop CloudTrail events Describe, List and Get
+    final: false
+  - id: comment
+    filter: "true"
+    conf:
       comment: Mask Account ID's and Access Keys from events
   - id: mask
     filter: "true"
@@ -62,7 +72,7 @@ functions:
     disabled: false
     conf:
       rules:
-        - matchRegex: /(^|[^A-Z0-9])[A-Z0-9]{12}(?![A-Z0-9])/
+        - matchRegex: /(^|[^\d])\d{12}(?!\d)/
           replaceExpr: C.Mask.repeat(16)
         - replaceExpr: C.Mask.repeat(21)
           matchRegex: /(^|[^A-Z0-9])[A-Z0-9]{21}(?![A-Z0-9])/
@@ -92,16 +102,6 @@ functions:
       outFields:
         - lookupField: service
     description: Lookup IP's against known AWS IP Range
-  - id: comment
-    filter: "true"
-    conf:
-      comment: Drop low value events (Describe, List and Get)
-  - id: drop
-    filter: /(^Describe|^List|^Get)/.test(_raw.eventName)
-    disabled: false
-    conf: {}
-    description: Drop CloudTrail events Describe, List and Get
-    final: false
   - id: eval
     filter: "true"
     disabled: false
