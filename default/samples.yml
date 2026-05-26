@@ -5,3 +5,10 @@ BeVTW2:
   created: 1752174928924
   size: 58780
   numEvents: 44
+cloudtrail_security_events:
+  sampleName: cloudtrail-security-events.json
+  description: AWS CloudTrail Security Events - account compromise, data exfiltration, privilege escalation, defense evasion
+  tags: aws,cloudtrail,security,threat
+  created: 1748044800000
+  size: 49000
+  numEvents: 50

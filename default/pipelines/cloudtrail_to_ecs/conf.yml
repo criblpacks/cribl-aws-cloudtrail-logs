@@ -13,7 +13,7 @@ functions:
     disabled: null
     conf:
       add:
-        - name: parsed
+        - name: ct
           value: JSON.parse(_raw)
     description: Parse the JSON found in _raw into a temporary object
   - id: comment
